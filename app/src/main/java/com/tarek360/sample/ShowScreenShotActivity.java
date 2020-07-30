@@ -3,7 +3,7 @@ package com.tarek360.sample;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
@@ -38,7 +38,7 @@ public class ShowScreenShotActivity extends AppCompatActivity {
 
         String filePath = getIntent().getStringExtra(KEY_FILE_PATH);
         if (filePath != null) {
-            Picasso.with(this).load(new File(filePath)).into(imageView);
+            Picasso.get().load(new File(filePath)).into(imageView);
         }
     }
 

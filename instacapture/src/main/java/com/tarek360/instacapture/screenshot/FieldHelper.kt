@@ -53,18 +53,19 @@ internal object FieldHelper {
             }
         }
 
-        if(rootViews.isEmpty()){
+        if (rootViews.isEmpty()) {
             val viewObjects = getFieldValue(FIELD_NAME_VIEWS, windowManager)
 
             val views = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                (viewObjects as ArrayList<View>).toTypedArray()
+                (viewObjects as ArrayList<*>).toTypedArray()
             } else {
-                viewObjects as Array<View>
+                viewObjects as Array<*>
             }
 
             if (views.isNotEmpty()) {
                 views.mapIndexedTo(rootViews) { i, view ->
-                            RootViewInfo(view, params[i]) }
+                    RootViewInfo(view as View, params[i])
+                }
             }
         }
 
@@ -97,10 +98,10 @@ internal object FieldHelper {
                     .filter { name == it.name }
                     .forEach { return it }
 
-            currentClass = currentClass.superclass
+            currentClass = currentClass.superclass as Class<*>
         }
         throw NoSuchFieldException(
-                "Field: " + name + " is not found in class: " + clazz.toString())
+                "Field: $name is not found in class: $clazz")
     }
 
     private inline fun <reified T> toArray(list: List<*>): Array<T> {

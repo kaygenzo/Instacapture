@@ -1,12 +1,12 @@
 package com.tarek360.sample;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -27,8 +27,8 @@ public class CustomViewSampleActivity extends BaseSampleActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Picasso.with(this).load(R.drawable.header).into(header);
-        Picasso.with(this).load(R.drawable.chart).into(chart);
+        Picasso.get().load(R.drawable.header).into(header);
+        Picasso.get().load(R.drawable.chart).into(chart);
     }
 
     @OnClick(R.id.fab)

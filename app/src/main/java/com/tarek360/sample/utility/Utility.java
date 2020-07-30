@@ -2,7 +2,6 @@ package com.tarek360.sample.utility;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.tarek360.instacapture.utility.Logger;
@@ -17,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
 import rx.Observable;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;

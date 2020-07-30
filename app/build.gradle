@@ -12,7 +12,7 @@ android {
 
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -21,22 +21,26 @@ android {
         }
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/androidTest/assets/'] } }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
     implementation "com.squareup.picasso:picasso:$rootProject.ext.picassoVersion"
     implementation "io.reactivex:rxandroid:$rootProject.ext.rxandroidVersion"
     implementation "io.reactivex:rxjava:$rootProject.ext.rxjavaVersion"
-    implementation('com.google.android.gms:play-services-maps:8.4.0')
+    implementation('com.google.android.gms:play-services-maps:17.0.0')
 
-    androidTestImplementation "com.android.support:support-annotations:$rootProject.ext.supportLibraryVersion"
-    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.1'
+    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
 
     implementation project(path: ':instacapture')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

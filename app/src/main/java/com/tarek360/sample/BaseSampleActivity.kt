@@ -2,8 +2,8 @@ package com.tarek360.sample
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.support.annotation.LayoutRes
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import butterknife.ButterKnife
 import com.tarek360.instacapture.Instacapture
