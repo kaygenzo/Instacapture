@@ -1,7 +1,8 @@
-# Instacapture 2.0 [![Release](https://jitpack.io/v/tarek360/instacapture.svg)](https://jitpack.io/#tarek360/instacapture)
+# Instacapture 2.0 [![Maven Central](https://img.shields.io/maven-central/v/io.github.kaygenzo/instacapture.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.kaygenzo%22%20AND%20a:%22instacapture%22)
 
 Android library to capture screenshot from your app
 
+Forked from https://github.com/derohimat/Instacapture forking itself the repository https://github.com/tarek360/Instacapture
 
 ### Features
 - Capture all the contents of the screen, includes:
@@ -20,7 +21,7 @@ Add this to your module `build.gradle` file:
 ```gradle
 dependencies {
 	...
-	 compile "com.github.tarek360:instacapture:2.0.1"
+	 compile "io.github.kaygenzo:instacapture:2.1.0"
 }
 ```
 
@@ -29,7 +30,7 @@ Add this to your root `build.gradle` file (**not** your module `build.gradle` fi
 allprojects {
 	repositories {
 		...
-		maven { url "https://jitpack.io" }
+		mavenCentral()
 	}
 }
 ```
