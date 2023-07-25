@@ -1,12 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.tarek360'
 
 android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -43,10 +40,10 @@ android {
 dependencies {
 
     api fileTree(dir: 'libs', include: ['*.jar'])
-    implementation('androidx.appcompat:appcompat:1.1.0') {
+    implementation("androidx.appcompat:appcompat:$appcompatVersion") {
         ext.optional = true
     }
-    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation "androidx.annotation:annotation:$annotationVersion"
 
     implementation "io.reactivex:rxandroid:$rootProject.ext.rxandroidVersion"
     implementation "io.reactivex:rxjava:$rootProject.ext.rxjavaVersion"
@@ -55,9 +52,5 @@ dependencies {
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
-repositories {
-    mavenCentral()
-}
-//apply plugin: 'com.google.gms.google-services'
 
 

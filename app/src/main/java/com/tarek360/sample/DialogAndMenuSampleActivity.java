@@ -4,21 +4,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import com.tarek360.sample.databinding.ActivityDialogAndMenuSampleBinding;
 
 public class DialogAndMenuSampleActivity extends BaseSampleActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dialog_and_menu_sample);
-        ButterKnife.bind(this);
-    }
-
-    @OnClick(R.id.show_dialog)
-    protected void showDialog() {
-        showAlertDialog();
+        final ActivityDialogAndMenuSampleBinding binding =
+                ActivityDialogAndMenuSampleBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.showDialog.setOnClickListener(v -> showAlertDialog());
     }
 
     @Override

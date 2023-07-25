@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.tarek360.instacapture"
@@ -25,26 +24,25 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "com.google.android.material:material:1.9.0"
     implementation "com.squareup.picasso:picasso:$rootProject.ext.picassoVersion"
     implementation "io.reactivex:rxandroid:$rootProject.ext.rxandroidVersion"
     implementation "io.reactivex:rxjava:$rootProject.ext.rxjavaVersion"
-    implementation('com.google.android.gms:play-services-maps:17.0.0')
+    implementation('com.google.android.gms:play-services-maps:18.1.0')
 
-    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
+    androidTestImplementation "androidx.annotation:annotation:$annotationVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:3.5.1"
 
     implementation project(path: ':instacapture')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
-repositories {
-    mavenCentral()
 }

@@ -2,10 +2,8 @@ package com.tarek360.sample
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
-import butterknife.ButterKnife
 import com.tarek360.instacapture.Instacapture
 import com.tarek360.instacapture.listener.SimpleScreenCapturingListener
 import com.tarek360.sample.uncapturableViews.AlertDialogFragment
@@ -17,11 +15,6 @@ abstract class BaseSampleActivity : AppCompatActivity(), AlertDialogFragment.OnA
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     Instacapture.enableLogging(true)
-  }
-
-  override fun setContentView(@LayoutRes layoutResID: Int) {
-    super.setContentView(layoutResID)
-    ButterKnife.bind(this)
   }
 
   protected fun showAlertDialog() {

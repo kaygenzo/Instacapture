@@ -1,31 +1,24 @@
 package com.tarek360.sample;
 
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
-import android.view.View;
 
-import butterknife.BindView;
-import butterknife.OnClick;
+import com.tarek360.sample.databinding.ActivityMapFragmentBinding;
 
 /**
  * Created by tarek on 5/28/16.
  */
 public class MapFragmentSampleActivity extends BaseSampleActivity {
 
-    @BindView(R.id.toolbar)
-    public Toolbar toolbar;
+    protected ActivityMapFragmentBinding binding = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map_fragment);
+        binding = ActivityMapFragmentBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @OnClick(R.id.fab)
-    public void onClickFAB(View view) {
-        captureScreenshot(view);
+        binding.fab.setOnClickListener(this::captureScreenshot);
     }
 }

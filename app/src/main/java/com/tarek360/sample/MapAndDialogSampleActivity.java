@@ -1,14 +1,12 @@
 package com.tarek360.sample;
 
-import android.view.View;
-
-import butterknife.OnClick;
+import android.os.Bundle;
 
 public class MapAndDialogSampleActivity extends MapFragmentSampleActivity {
 
-    @OnClick(R.id.fab)
     @Override
-    public void onClickFAB(View view) {
-        showAlertDialog();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding.fab.setOnClickListener(v -> showAlertDialog());
     }
 }

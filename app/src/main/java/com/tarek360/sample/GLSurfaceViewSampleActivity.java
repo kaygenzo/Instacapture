@@ -1,14 +1,9 @@
 package com.tarek360.sample;
 
-import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
-import android.view.View;
 
+import com.tarek360.sample.databinding.ActivityGlSurfaceViewSampleBinding;
 import com.tarek360.sample.uncapturableViews.GLSurfaceViewRenderer;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by tarek on 10/4/16.
@@ -16,25 +11,18 @@ import butterknife.OnClick;
 
 public class GLSurfaceViewSampleActivity extends BaseSampleActivity {
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gl_surface_view_sample);
+        final ActivityGlSurfaceViewSampleBinding binding =
+                ActivityGlSurfaceViewSampleBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        GLSurfaceView glSurfaceView = (GLSurfaceView) findViewById(R.id.glSurfaceView);
-
-        glSurfaceView.setRenderer(new GLSurfaceViewRenderer());
-    }
-
-    @OnClick(R.id.fab)
-    public void onClickFAB(View view) {
-        captureScreenshot(view);
+        binding.glSurfaceView.setRenderer(new GLSurfaceViewRenderer());
+        binding.fab.setOnClickListener(this::captureScreenshot);
     }
 }

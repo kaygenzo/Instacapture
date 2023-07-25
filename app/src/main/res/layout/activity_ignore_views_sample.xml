@@ -22,7 +22,9 @@
 
   </com.google.android.material.appbar.AppBarLayout>
 
-  <include layout="@layout/content_ignore_views_sample"/>
+  <include
+      android:id="@+id/content"
+      layout="@layout/content_ignore_views_sample"/>
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
       android:id="@+id/fab"
