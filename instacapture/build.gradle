@@ -41,8 +41,6 @@ android {
 }
 
 dependencies {
-
-    api fileTree(dir: 'libs', include: ['*.jar'])
     implementation("androidx.appcompat:appcompat:$appcompatVersion") {
         ext.optional = true
     }
@@ -57,5 +55,3 @@ dependencies {
 }
 
 apply from: 'maven.gradle'
-
-
